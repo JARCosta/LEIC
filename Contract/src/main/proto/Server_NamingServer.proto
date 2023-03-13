@@ -1,0 +1,30 @@
+syntax = "proto3";
+package pt.ulisboa.tecnico.distledger.contract.server_namingserver;
+
+import "DistLedgerCommonDefinitions.proto";
+
+message RegisterRequest {
+  string host = 1;
+  int32 port = 2;
+  string qualifier = 3;
+}
+
+message RegisterResponse {}
+
+message LookupRequest {
+
+}
+
+message LookupResponde{}
+
+message DeleteRequest{
+
+}
+
+message DeleteResponse{}
+
+message PropagateStateResponse {}
+
+service DistLedgerCrossServerService {
+  rpc propagateState(PropagateStateRequest) returns (PropagateStateResponse);
+}
