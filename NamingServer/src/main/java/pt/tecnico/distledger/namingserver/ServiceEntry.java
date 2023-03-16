@@ -1,10 +1,14 @@
+package pt.tecnico.distledger.namingserver;
+import java.util.*;
+
+
 public class ServiceEntry {
     
     private String serviceName;
-    list<ServerEntry> servers;
+    List<ServerEntry> servers;
 
-    public ServiceEntry() {
-        this.serviceName = "DistLedger";
+    public ServiceEntry(String serverName) {
+        this.serviceName = serverName;
         this.servers = new ArrayList<ServerEntry>();
     }
 

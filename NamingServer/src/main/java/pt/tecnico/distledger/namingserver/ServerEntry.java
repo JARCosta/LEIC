@@ -1,37 +1,31 @@
+package pt.tecnico.distledger.namingserver;
 public class ServerEntry {
 
-    private String host;
-    private int port;
     private String qualifier;
+    private String target;
 
 
-    public ServerEntry(String host, int port, String qualifier) {
-        this.host = host;
-        this.port = port;
+    public ServerEntry(String qualifier, String target){
         this.qualifier = qualifier;
-    }
-
-    public String getHost() {
-        return host;
-    }
-
-    public int getPort() {
-        return port;
+        this.target = target;
     }
 
     public String getQualifier() {
         return qualifier;
     }
-
-    public void setHost(String host) {
-        this.host = host;
+    
+    public String getTarget() {
+        return target;
     }
-
-    public void setPort(int port) {
-        this.port = port;
-    }
-
+    
     public void setQualifier(String qualifier) {
         this.qualifier = qualifier;
     }
+    
+    public void setTarget(String address) {
+        this.target = target;
+    }
+
+
+    
 }

@@ -1,8 +1,8 @@
 package pt.tecnico.distledger.server.domain;
-import pt.ulisboa.tecnico.distledger.contract.admin.NamingServerServiceGrpc.NamingServerServiceImplBase;
+import pt.ulisboa.tecnico.distledger.contract.distledgerserver.DistLedgerCrossServerServiceGrpc.DistLedgerCrossServerServiceImplBase;
 
 
-public class NamingServerServiceImpl extends NamingServerServiceImplBase{
+public class NamingServerServiceImpl extends DistLedgerCrossServerServiceImplBase{
     // implement register method
 
 }
