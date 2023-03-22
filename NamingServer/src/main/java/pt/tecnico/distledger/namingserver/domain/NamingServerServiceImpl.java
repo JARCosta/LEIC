@@ -1,4 +1,4 @@
-package pt.tecnico.distledger.server.domain;
+package pt.tecnico.distledger.namingserver.domain;
 
 import io.grpc.stub.StreamObserver;
 import pt.ulisboa.tecnico.distledger.contract.distledgerserver.DistLedgerCrossServerServiceGrpc.DistLedgerCrossServerServiceImplBase;

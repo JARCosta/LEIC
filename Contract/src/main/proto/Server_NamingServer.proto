@@ -1,5 +1,5 @@
 syntax = "proto3";
-package pt.ulisboa.tecnico.distledger.contract.server_namingserver;
+package pt.ulisboa.tecnico.distledger.contract.namingserver;
 
 import "DistLedgerCommonDefinitions.proto";
 

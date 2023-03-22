@@ -1,4 +1,4 @@
-package pt.tecnico.distledger.namingserver;
+package pt.tecnico.distledger.namingserver.domain;
 public class ServerEntry {
 
     private String qualifier;
