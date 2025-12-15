@@ -1,7 +1,7 @@
 package pt.tecnico.addressbook.server.domain;
 
 import pt.tecnico.addressbook.grpc.AddressBookList;
-import pt.tecnico.addressbook.grpc.PersonInfo.PhoneType;
+import pt.tecnico.addressbook.grpc.PhoneType;
 import pt.tecnico.addressbook.server.domain.exception.DuplicatePersonInfoException;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,5 +24,11 @@ public class AddressBook {
         return AddressBookList.newBuilder()
                 .addAllPeople(people.values().stream().map(Person::proto).collect(Collectors.toList()))
                 .build();
+    }
+
+    public AddressBookList listAll(PhoneType type) {
+        return AddressBookList.newBuilder()
+        .addAllPeople(people.values().stream().filter(p -> p.getType() == type).map(Person::proto).collect(Collectors.toList()))
+        .build();
     }
 }

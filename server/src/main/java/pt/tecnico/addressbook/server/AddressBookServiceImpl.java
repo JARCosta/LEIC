@@ -20,6 +20,13 @@ public class AddressBookServiceImpl extends AddressBookServiceImplBase {
     }
 
     @Override
+    public void listAll(ListAllRequest request, StreamObserver<AddressBookList> responseObserver) {
+        AddressBookList response = addressBook.listAll(request.getType());
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
     public void addPerson(PersonInfo request, StreamObserver<AddPersonResponse> responseObserver) {
         try {
             addressBook.addPerson(request.getName(), request.getEmail(), request.getPhone().getNumber(), request.getPhone().getType());

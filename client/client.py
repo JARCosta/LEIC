@@ -57,6 +57,8 @@ class PythonClient(object):
             person.phone.type = pb2.PersonInfo.PhoneType.HOME
         elif type == "work":
             person.phone.type = pb2.PersonInfo.PhoneType.WORK
+        elif type == "emergency":
+            person.phone.type = pb2.PersonInfo.PhoneType.EMERGENCY
         else:
             print("Unknown phone type; leaving as default value.")
             return
@@ -83,8 +85,20 @@ def print_person(person):
         print("  Home phone #: ", end="")
     elif person.phone.type == pb2.PersonInfo.PhoneType.WORK:
         print("  Work phone #: ", end="")
+    elif person.phone.type == pb2.PersonInfo.PhoneType.EMERGENCY:
+        print("  Work phone #: ", end="")
     print(person.phone.number)
 
+def list_all():
+    """
+    List all people in the address book.
+    """
+    try:
+        response = client.listPeople(pb2.ListPeopleRequest())
+        for person in response.people:
+            print_person(person)
+    except grpc.RpcError as rpc_error:
+        print('ERROR: code={}, description={}'.format(rpc_error.code(), rpc_error.details()))
 
 def get_user_choice():
     """
@@ -93,6 +107,7 @@ def get_user_choice():
     print("\n[1] See a list of addresses.")
     print("[2] Add person's address.")
     print("[3] Search person's address.")
+    print("[5] List all person's address.")
     print("[q] Quit.")
 
     return input("What would you like to do? ")
@@ -114,6 +129,8 @@ if __name__ == '__main__':
         elif choice == '3':
             # TODO: implement searchPerson
             print("searchPerson to be implemented")
+        if choice == '5':
+            client.list_all()
         elif choice == 'q':
             print("\nBye.")
         else:
